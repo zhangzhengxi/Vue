@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<header>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="../js/vue.js"></script>
+</header>
+<body>
+    <div id="vue5">
+        <a href="../main.html">返回</a> 
+        <span>vue中的计算属性和侦听器</span>
+        <hr>
+        <h1>代码效果展示:</h1>
+        姓: <input v-model="firstName">
+        名: <input v-model="lastName">
+        <div>{{fullName}}</div>
+        <div>{{count}}</div>
+        <h1>重点解释:</h1>
+        <p>计算属性computed 性能是比较高的,每次依赖的值发生变化才会发生过改变, 否则就是上次计算的结果作为缓存值</p>
+        <p>侦听器 wactch 监测某一个数据或者侦听器的数据发生了变化,一旦发生了变化就可以在侦听器里面执行相应的业务逻辑</p>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#vue5',
+        data: {
+            firstName: '',
+            lastName: '',
+            count: 0
+        },
+        computed: {
+            fullName: function () {
+                return this.firstName + ' ' + this.lastName
+            }
+        },
+        watch: {
+            fullName: function () {
+                this.count++
+            }
+        }
+    })
+</script>
+</html>

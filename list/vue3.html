@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<header>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="../js/vue.js"></script>
+</header>
+<body>
+    <div id="vue3">
+        <a href="../main.html">返回</a>
+        <span>数据,事件,方法用法</span>
+        <hr>
+        <h1>代码效果展示:</h1>
+        <h3>{{msg}}</h3>
+        <h3 v-text="msg2"></h3>
+        <h3 v-html="msg3"></h3>
+        <h3 v-on:click="handleClick">{{content}}</h3>
+        <h1>代码示例:</h1>
+        <div v-text="txt"></div>
+        <div v-text="txt2"></div>
+        <div v-text="txt3"></div>
+        <div v-text="txt4"></div>
+        <h1>重点解释:</h1>
+        <p>v-on 事件绑定可以简写为 @</p>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#vue3',
+        data: {
+            msg: '1.hello world',
+            msg2: '2.<h3>hello world</h3>',
+            msg3: '<h3>3.hello world</h3>',
+            txt: '1.插值法{{msg}}',
+            txt2: '2.v-text 不会对标签转义:<h3>hello world</h3>',
+            txt3: '3.v-html会对标签转义<h3>hello world</h3>',
+            txt4: '4.html: <h3 v-on:click="handleClick">{{content}}</h3> js:  handleClick: function (){this.content=this.content+1 }',
+            content: '4.事件[请点击]'
+        },
+        methods: {
+            handleClick: function () {
+                this.content = this.content + 1
+            }
+        }
+    })
+</script>
+</html>

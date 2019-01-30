@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <header>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+            <script src="./js/vue.js"></script>
+    </header>
+    <body>
+        <div id="mainList">
+            <h1>{{describe}}</h1>
+            <h3>{{txt}}</h3>
+            <hr>
+            <div :class="divStyle" id="" @click="handleClick1">{{txt1}}</div>
+            <hr>
+            <div :class="divStyle" id="" @click="handleClick2">{{txt2}}</div>
+            <hr>
+            <div :class="divStyle" id="" @click="handleClick3">{{txt3}}</div>
+            <hr>
+            <div :class="divStyle" id="" @click="handleClick4">{{txt4}}</div>
+            <hr>
+            <div :class="divStyle" id="" @click="handleClick5">{{txt5}}</div>
+            <hr>
+            <div :class="divStyle" id="" @click="handleClick6">{{txt6}}</div>
+        </div>
+    </body>
+    <script>
+        new  Vue({
+            el: '#mainList',
+            data: {
+                describe: 'Vue2.X语法练习',
+                txt:'纸上得来终觉浅 绝知此事要躬行',
+                txt1:'创建第一个Vue示例',
+                txt2:'挂载点,模板与实例',
+                txt3:'Vue实例中的数据,事件和方法',
+                txt4:'Vue中的属性绑定和双向数据绑定',
+                txt5:'Vue中的计算属性和侦听器',
+                txt6:'v-if,v-show,v-for指令',
+                divStyle:'div-style'
+            },
+            methods: {
+               handleClick1: function(){
+                location.href='./list/vue1.html'
+               },
+               handleClick2: function(){
+                location.href='./list/vue2.html'
+               },
+               handleClick3: function(){
+                location.href='./list/vue3.html'
+               },
+               handleClick4: function(){
+                location.href='./list/vue4.html'
+               },
+               handleClick5: function(){
+                location.href='./list/vue5.html'
+               },
+               handleClick6: function(){
+                location.href='./list/vue6.html'
+               },
+            }
+        })
+    </script>
+    <style>
+        .div-style{
+            color: #fff;
+            background-color: #409EFF ;
+            height: 50px;
+            width: 100%;
+            font-size: 20px;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+        }
+        .div-style:hover{
+            background-color: #67C23A;
+
+        }
+    </style>
+</html>

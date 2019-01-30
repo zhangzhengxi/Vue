@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <script src="./js/vue.js"></script>
+    </head>
+    <body>
+        <div id="root">
+           <div>
+               <input v-model="inputValue" @keyup.enter="handleSubmit"/>
+               <button @click="handleSubmit">提交</button>
+           </div>
+           <ul>
+               <!-- <li v-for="(item, index) of list" :key="index">{{item}}</li> -->
+            <!-- 组件标签 todo-item -->
+            <todo-item 
+                v-for="(item,index) of list" 
+                :key="index" 
+                :content="item"
+                :index="index"
+                @delete="handleDelte"
+            >
+            </todo-item>
+           </ul>
+        </div>
+    </body>
+    <script>
+        //组件全局定义方式,组件内也可以定义方法,  每个组件都是一个vue的实例
+        Vue.component('todo-item',{
+            props: ['content','index'],//父组件穿的参数
+            template: '<li @click="handleClcik">{{content}}</li>',
+            methods: {
+                handleClcik: function(){
+                    //子组件向外发布一个命令事件this.$emit,index为参数. 点击会触发父组件的 @delete="handleDelte"
+                    this.$emit('delete',this.index)
+                }
+            }
+        })
+
+        //组件局部定义方式 就是定义一个变量,然后在vue实例中注册下
+
+
+       var app = new Vue({
+            el: '#root',
+            data: {
+                inputValue: '',
+                list: []
+            },
+            methods:{
+                handleSubmit: function(){
+                    this.list.push(this.inputValue)
+                    this.inputValue=''
+                },
+                handleDelte: function(index){
+                    this.list.splice(index,1)//从list 对应下标的地方删除一项
+                }
+            }
+        })
+    </script>
+</html>

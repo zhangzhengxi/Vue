@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<header>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="../js/vue.js"></script>
+</header>
+<body>
+    <div id="vue4">
+        <a href="../main.html">返回</a>
+        <span>属性绑定和数据双向绑定</span>
+        <hr>
+        <h1>代码效果展示:</h1>
+        <div v-bind:title="'zhangy '+title">hello world</div>
+        <div :title="'zhangy '+title">hello world</div>
+        <input v-model="content">
+        <div>{{content}}</div>
+        <h1>重点解释:</h1>
+        <p>v-bind 属性绑定可以简写为 : </p>
+        <p> 数据双向绑定 使用 v-model</p>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#vue4',
+        data: {
+            title: 'this is hello world',
+            content: 'this is content'
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<header>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="../js/vue.js"></script>
+</header>
+<body>
+    <div id="vue2">
+        <a href="../main.html">返回</a>
+        <span>侧重挂载点,模板,实例之间的关系</span>
+        <hr>
+        <h1>代码效果展示:</h1>
+        <h3>{{msg}}</h3>
+        <h1>代码示例:</h1>
+        <div v-text="d1"></div>
+        <div v-text="d2"></div>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#vue2',
+        data: {
+            msg: 'world',
+            d1: '模板写在dom下: html:<h3>{{msg}}</h3>  js: new Vue({ el: \'#vue2\', data: { msg: \'world\' } })',
+            d2: '模板写在实例中: new Vue({ el: \'#vue2\', template:\'hello {{msg}}\', data: { msg: \'world\' } })'
+        }
+    })
+</script>
+</html>
